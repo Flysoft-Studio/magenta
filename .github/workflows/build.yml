@@ -62,8 +62,13 @@ jobs:
             - name: Run install
               run: yarn install --prefer-offline
 
-            - name: Build production
+            - name: Build production (Windows)
+              if: runner.os == 'Windows'
               run: yarn run tauri:build:is
+
+            - name: Build production (non-Windows)
+              if: runner.os != 'Windows'
+              run: yarn run tauri:build
 
             - name: Upload dist (Windows)
               if: runner.os == 'Windows'
@@ -77,11 +82,11 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                   name: linux
-                  path: "out/*"
+                  path: "src-tauri/target/release/bundle/*"
 
             - name: Upload dist (macOS)
               if: runner.os == 'macOS'
               uses: actions/upload-artifact@v3
               with:
                   name: macos
-                  path: "out/*"
+                  path: "src-tauri/target/release/bundle/*"
