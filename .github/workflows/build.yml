@@ -20,15 +20,42 @@ jobs:
               with:
                   node-version: 18.x
 
-            - name: Run install
-              uses: borales/actions-yarn@v4
+            - name: Use Yarn
+              run: npm install yarn -g
+
+            - name: Delete lock file # improve download speed
+              run: del /f yarn.lock
+
+            - name: Get Yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "::set-output name=dir::$(yarn cache dir)"
+
+            - name: Cache Yarn dependencies
+              id: yarn-cache
+              uses: actions/cache@v3
               with:
-                  cmd: install
+                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
+
+            - name: Cache Cargo dependencies
+              id: cargo-cache
+              uses: actions/cache@v3
+              with:
+                  path: |
+                      ~/.cargo/bin/
+                      ~/.cargo/registry/index/
+                      ~/.cargo/registry/cache/
+                      ~/.cargo/git/db/
+                      target/
+                  key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+            - name: Run install
+              run: yarn install --prefer-offline
 
             - name: Build production
-              uses: borales/actions-yarn@v4
-              with:
-                  cmd: tauri:build:is
+              run: yarn run tauri:build:is
 
             - name: Upload dist
               uses: actions/upload-artifact@v3
