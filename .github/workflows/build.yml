@@ -28,4 +28,10 @@ jobs:
             - name: Build production
               uses: borales/actions-yarn@v4
               with:
-                  cmd: tauri:build
+                  cmd: tauri:build:is
+
+            - name: Upload dist
+              uses: actions/upload-artifact@v3
+              with:
+                  name: win32-installer
+                  path: "out/*"
