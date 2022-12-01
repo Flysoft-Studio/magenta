@@ -128,5 +128,6 @@ dist
 # -----------------
 out
 build
+src-tauri/installer/installer.iss
 src-tauri/target
 src-tauri/Cargo.lock
