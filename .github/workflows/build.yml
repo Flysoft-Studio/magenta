@@ -70,23 +70,44 @@ jobs:
               if: runner.os != 'Windows'
               run: yarn run tauri:build
 
-            - name: Upload dist (Windows)
+            - name: Upload dist (Windows, Setup)
               if: runner.os == 'Windows'
               uses: actions/upload-artifact@v3
               with:
-                  name: win32
-                  path: "out/*"
+                  name: win32-setup
+                  path: "out/*.exe"
 
-            - name: Upload dist (Linux)
+            - name: Upload dist (Windows, MSI)
+              if: runner.os == 'Windows'
+              uses: actions/upload-artifact@v3
+              with:
+                  name: win32-msi
+                  path: "src-tauri/target/release/bundle/msi/*.msi"
+
+            - name: Upload dist (Windows, Standalone)
+              if: runner.os == 'Windows'
+              uses: actions/upload-artifact@v3
+              with:
+                  name: win32-standalone
+                  path: "src-tauri/target/release/Magenta Player.exe"
+
+            - name: Upload dist (Linux, Deb)
               if: runner.os == 'Linux'
               uses: actions/upload-artifact@v3
               with:
-                  name: linux
-                  path: "src-tauri/target/release/bundle/*"
+                  name: linux-deb
+                  path: "src-tauri/target/release/bundle/deb/*.deb"
+
+            - name: Upload dist (Linux, AppImage)
+              if: runner.os == 'Linux'
+              uses: actions/upload-artifact@v3
+              with:
+                  name: linux-appimage
+                  path: "src-tauri/target/release/bundle/appimage/*.AppImage"
 
             - name: Upload dist (macOS)
               if: runner.os == 'macOS'
               uses: actions/upload-artifact@v3
               with:
-                  name: macos
-                  path: "src-tauri/target/release/bundle/*"
+                  name: macos-dmg
+                  path: "src-tauri/target/release/bundle/dmg/*.dmg"
