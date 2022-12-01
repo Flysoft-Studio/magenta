@@ -1,0 +1,97 @@
+@import url(../common/base.less);
+@import url(../common/constants.less);
+@import url(../common/components/button.less);
+
+.titlebar {
+    .flex();
+    .flex_x();
+    .flex_xcenter();
+    .flex_spacebetween();
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: @titlebar-height;
+    border-bottom: var(--border1) 1px solid;
+    backdrop-filter: blur(30px);
+    background-color: var(--titlebar-bg);
+    transition: border-bottom 0.1s @cb, backdrop-filter 0.1s @cb,
+        background-color 0.1s @cb;
+    z-index: 200;
+
+    &.titlebar_top {
+        border-bottom: transparent 1px solid;
+        backdrop-filter: none;
+        background-color: transparent;
+    }
+}
+
+.titlebar_left {
+    .flex();
+    .flex_x();
+    .flex_xcenter();
+
+    margin-left: 5px;
+    gap: 15px;
+}
+
+.titlebar_back {
+    .flex();
+    .flex_center();
+    .button_base();
+
+    width: 40px;
+    height: 36px;
+    border-radius: 3px;
+
+    svg {
+        width: 17px;
+        max-height: 17px;
+    }
+}
+
+.titlebar_title {
+    .flex();
+    .flex_x();
+    .flex_xcenter();
+
+    gap: 8px;
+
+    .titlebar_icon {
+        width: 20px;
+    }
+
+    .titlebar_text {
+        color: var(--text-color);
+        font-size: 12px;
+    }
+}
+
+.titlebar_btns {
+    .flex();
+    .flex_x();
+
+    height: 100%;
+
+    .titlebar_btn {
+        .button_base();
+        .flex();
+        .flex_center();
+
+        width: 47px;
+        height: 32px;
+
+        svg {
+            width: 16px;
+            max-height: 17px;
+        }
+
+        &.titlebar_btn_close {
+            &:hover {
+                color: #ffffff;
+                background-color: #d71525;
+            }
+        }
+    }
+}

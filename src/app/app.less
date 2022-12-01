@@ -1,0 +1,106 @@
+@import url(../common/base.less);
+@import url(../common/constants.less);
+@import url(../common/components/button.less);
+
+.app {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--body-bg);
+    overflow: hidden;
+}
+
+.clientarea {
+    .flex();
+    .flex_x();
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+}
+
+.user_gesture_required {
+    .text();
+    .flex();
+    .flex_center();
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 20px;
+    outline: none;
+    border: none;
+}
+
+.main {
+    .flex();
+    .flex_x();
+
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+}
+
+.tab {
+    padding-top: @titlebar-height;
+    flex: 1;
+    overflow: auto;
+}
+
+.tab_inner {
+    .flex();
+    .flex_y();
+    .flex_stretch();
+    .center();
+
+    padding: 60px 15px;
+    gap: 40px;
+    max-width: 1200px;
+}
+
+.tab_scrollbar {
+    margin-top: @titlebar-height;
+}
+
+.tab_fadein {
+    animation: 0.25s tab_fadein cubic-bezier(0.29, 0.74, 0.5, 1) forwards;
+}
+
+.tab_fadeout {
+    animation: 0.08s tab_fadeout ease forwards;
+}
+
+@keyframes tab_fadein {
+    0% {
+        z-index: 100;
+        opacity: 0;
+        transform: translateY(200px) scale(0.99);
+        filter: blur(1px);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+}
+
+@keyframes tab_fadeout {
+    0% {
+        opacity: 1;
+        transform: none;
+    }
+    50% {
+        transform: scale(0.96);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+}

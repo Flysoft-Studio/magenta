@@ -1,0 +1,85 @@
+@import url(../base.less);
+
+.button() {
+    .flex();
+    .flex_x();
+    .flex_xcenter();
+    .button_base();
+
+    gap: 5px;
+    border: var(--border1) 1px solid;
+    font-size: 17px;
+    background-color: var(--button-bg);
+    border-radius: 5px;
+    padding: 8px;
+
+    &:focus-visible {
+        border-width: 1px;
+    }
+
+    .button_theme() {
+        border: none;
+        color: var(--button-theme-color);
+        background-color: var(--button-theme-bg);
+        transition: opacity 0.1s @cb, color 0.1s @cb, background-color 0.1s @cb;
+
+        &:hover {
+            opacity: 0.8;
+            color: var(--button-theme-hover-color);
+        }
+    }
+}
+
+.button_base() {
+    color: var(--button-color);
+    background-color: var(--button-base-bg);
+    border: transparent 2px solid;
+    outline: none;
+    transition: color 0.1s @cb, background-color 0.1s @cb;
+
+    &:hover {
+        color: var(--button-hover-color);
+        background-color: var(--button-hover-bg);
+    }
+
+    &:hover * {
+        color: inherit;
+    }
+
+    &:focus-visible {
+        border: var(--button-focus-color) 2px solid;
+    }
+
+    .button_radio() {
+        position: relative;
+
+        input {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            appearance: none;
+            border: none;
+            outline: none;
+            border-radius: inherit;
+
+            &:focus-visible {
+                border: var(--button-focus-color) 2px solid;
+            }
+        }
+    }
+
+    .button_escale() {
+        transform: scale(1);
+        transition: transform 0.15s @cb, color 0.1s @cb, background-color 0.1s @cb;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+}

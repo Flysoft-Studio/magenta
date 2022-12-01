@@ -1,0 +1,130 @@
+@import url(../common/base.less);
+@import url(../common/components/button.less);
+
+.media_list {
+    .flex();
+    .flex_y();
+
+    width: 100%;
+    background-color: var(--card-bg);
+    border: var(--border1) 1px solid;
+    border-radius: 5px;
+    overflow: hidden;
+    list-style: none;
+
+    *:first-child {
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
+
+    *:last-child {
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+    }
+}
+
+.media_list_item {
+    .button_base();
+    .flex();
+    .flex_x();
+    .flex_xcenter();
+
+    --info-left: 50%;
+    padding: 5px 12px;
+    gap: 8px;
+
+    .media_list_item_button() {
+        .button_base();
+
+        border-radius: 5px;
+    }
+
+    .media_list_item_counter {
+        padding-right: 5px;
+    }
+
+    .media_list_item_cover {
+        --cover-size: 50px;
+        flex-shrink: 0;
+    }
+
+    .media_list_item_info {
+        .flex();
+        .flex_x();
+        .flex_xcenter();
+
+        flex: 1;
+        gap: 5px;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .media_list_item_info_left {
+        .flex();
+        .flex_xstart();
+        .flex_y();
+
+        width: var(--info-left);
+        gap: 1px;
+
+        * {
+            .text_overflow();
+
+            max-width: 100%;
+        }
+
+        .media_list_item_info_title {
+            .text();
+
+            padding-left: 3px;
+            font-size: 17.5px;
+        }
+
+        .media_list_item_info_artist {
+            .media_list_item_button();
+            .text();
+            .text_sub();
+
+            font-size: 14px;
+            padding: 1px;
+        }
+    }
+
+    .media_list_item_info_right {
+        .flex();
+        .flex_x();
+        .flex_xcenter();
+        .flex_spacebetween();
+
+        width: calc(100% - var(--info-left) - 5px);
+        gap: 5px;
+
+        * {
+            .text_overflow();
+        }
+
+        .media_list_item_info_album {
+            .media_list_item_button();
+            .text();
+            .text_sub();
+
+            font-size: 15px;
+            padding: 1px;
+        }
+
+        .media_list_item_info_duration {
+            .text();
+            .text_sub();
+
+            flex-shrink: 0;
+            font-size: 14px;
+        }
+    }
+
+    &:hover {
+        .media_list_item_info_title,
+        .media_list_item_info_duration {
+            color: inherit;
+        }
+    }
+}

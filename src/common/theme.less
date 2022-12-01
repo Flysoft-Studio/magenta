@@ -1,0 +1,130 @@
+.light() {
+    --body-bg: rgb(245, 245, 245);
+    --text-color: rgb(0, 0, 0);
+    --text-sub-color: rgb(74, 74, 74);
+    --highlight-border: transparent;
+    --border1: rgba(0, 0, 0, 0.1);
+    --border2: rgba(0, 0, 0, 0.2);
+    --splitter-color: rgba(0, 0, 0, 0.3);
+    --theme-color-light: rgb(0, 120, 212);
+    --theme-color-dark: rgb(96, 194, 234);
+    --theme-color-forced-colors: Highlight;
+    --theme-color: var(--theme-color-light);
+    --card-bg: rgba(255, 255, 255, 0.4);
+    --range-bg: rgba(0, 0, 0, 0.3);
+    --button-color: rgb(0, 0, 0);
+    --button-bg: rgba(0, 0, 0, 0.05);
+    --button-base-bg: transparent;
+    --button-hover-color: rgba(0, 0, 0, 0.8);
+    --button-hover-bg: rgba(0, 0, 0, 0.1);
+    --button-theme-color: rgb(255, 255, 255);
+    --button-theme-bg: var(--theme-color);
+    --button-theme-hover-color: rgba(255, 255, 255, 0.5);
+    --button-theme-hover-bg: var(--theme-color);
+    --button-focus-color: rgba(0, 0, 0, 0.8);
+    --sidebar-item-color: rgba(0, 0, 0, 0.1);
+    --sidebar-item-active-color: rgba(0, 0, 0, 0.7);
+    --sidebar-item-hover-color: rgba(0, 0, 0, 0.3);
+    --titlebar-bg: rgba(255, 255, 255, 0.9);
+    --float-bg: rgba(255, 255, 255, 0.5);
+    --float-transition: rgb(240, 240, 240);
+    --page-info-float-bg: rgb(255, 255, 255);
+    --playbar-play-bg: rgba(255, 255, 255, 0.1);
+    --playbar-play-ring: linear-gradient(
+        45deg,
+        var(--used-color) 0%,
+        var(--used-color) 40%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    --playui-background-color-layer: rgba(255, 255, 255, 0.2);
+    --playui-bg: rgb(255, 255, 255);
+    --cover-bg: rgb(240, 240, 240);
+
+    .forced_colors();
+}
+
+.dark() {
+    --body-bg: rgb(18, 18, 18);
+    --text-color: rgb(255, 255, 255);
+    --text-sub-color: rgb(170, 170, 170);
+    --border1: rgba(255, 255, 255, 0.2);
+    --border2: rgba(255, 255, 255, 0.3);
+    --splitter-color: rgba(255, 255, 255, 0.4);
+    --theme-color: var(--theme-color-dark);
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --range-bg: rgba(255, 255, 255, 0.3);
+    --button-color: rgb(244, 244, 244);
+    --button-bg: rgba(255, 255, 255, 0.1);
+    --button-hover-color: rgba(255, 255, 255, 0.8);
+    --button-hover-bg: rgba(255, 255, 255, 0.2);
+    --button-theme-color: rgb(0, 0, 0);
+    --button-theme-hover-color: rgba(0, 0, 0, 0.8);
+    --button-focus-color: rgba(255, 255, 255, 0.8);
+    --sidebar-item-color: rgba(255, 255, 255, 0.3);
+    --sidebar-item-active-color: rgba(255, 255, 255, 0.8);
+    --sidebar-item-hover-color: rgba(255, 255, 255, 0.5);
+    --titlebar-bg: rgba(0, 0, 0, 0.3);
+    --float-bg: rgba(0, 0, 0, 0.5);
+    --float-transition: rgb(40, 40, 40);
+    --page-info-float-bg: rgb(20, 20, 20);
+    --playbar-play-bg: rgba(255, 255, 255, 0.1);
+    --playbar-play-ring: linear-gradient(
+        45deg,
+        rgb(0, 0, 0) 0%,
+        var(--used-color) 50%,
+        var(--used-color) 100%
+    );
+    --playui-background-color-layer: rgba(0, 0, 0, 0.5);
+    --playui-bg: rgb(54, 54, 54);
+    --cover-bg: rgb(48, 48, 48);
+
+    .forced_colors();
+}
+
+.forced_colors() {
+    @media (forced-colors: active) {
+        --body-bg: ButtonFace;
+        --text-color: CanvasText;
+        --text-sub-color: CanvasText;
+        --highlight-border: Highlight;
+        --border1: Highlight;
+        --border2: Highlight;
+        --theme-color: var(--theme-color-forced-colors);
+        --media-theme: var(--theme-color) !important;
+        --card-bg: ButtonFace;
+        --range-bg: ButtonText;
+        --button-color: ButtonText;
+        --button-bg: ButtonFace;
+        --button-base-bg: ButtonFace;
+        --button-hover-color: HighlightText;
+        --button-hover-bg: Highlight;
+        --button-theme-color: HighlightText;
+        --button-theme-bg: Highlight;
+        --button-theme-hover-color: ButtonText;
+        --button-theme-hover-bg: ButtonFace;
+        --button-focus-color: Highlight;
+        --sidebar-item-color: ButtonText;
+        --sidebar-item-active-color: Highlight;
+        --sidebar-item-hover-color: Highlight;
+        --titlebar-bg: ButtonFace;
+        --float-bg: ButtonFace;
+        --float-transition: transparent;
+        --page-info-float-bg: ButtonFace;
+        --playbar-play-bg: transparent;
+        --playbar-play-ring: none;
+        --playui-bg: ButtonFace;
+        --cover-bg: ButtonFace;
+    }
+}
+
+.theme() {
+    .light();
+
+    @media (prefers-color-scheme: dark) {
+        .dark();
+    }
+}
+
+:root {
+    .theme();
+}

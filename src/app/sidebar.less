@@ -1,0 +1,39 @@
+@import url(../common/base.less);
+@import url(../common/constants.less);
+@import url(../common/components/button.less);
+
+.sidebar {
+    .flex();
+    .flex_y();
+
+    height: 100%;
+    margin-top: @titlebar-height;
+    padding: 30px 10px;
+    gap: 5px;
+    font-size: 20px;
+    border-right: var(--highlight-border) 1px solid;
+
+    .sidebar_item {
+        .button_base();
+        .button_escale();
+        .button_radio();
+        .flex();
+        .flex_center();
+
+        @size: 50px;
+        list-style: none;
+        color: var(--sidebar-item-color);
+        width: @size;
+        height: @size;
+        border-radius: 8px;
+        background-color: transparent !important;
+
+        &:hover {
+            color: var(--sidebar-item-hover-color);
+        }
+    }
+
+    .sidebar_item_checked {
+        color: var(--sidebar-item-active-color) !important;
+    }
+}
