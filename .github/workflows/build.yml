@@ -13,7 +13,7 @@ jobs:
     build:
         strategy:
             matrix:
-                os: [ubuntu-latest, windows-latest, macos-latest]
+                os: [windows-latest, ubuntu-latest, macos-latest]
         runs-on: ${{ matrix.os }}
         steps:
             - uses: actions/checkout@v3
@@ -26,11 +26,15 @@ jobs:
             - name: Use Yarn
               run: npm install yarn -g
 
-            - name: Get Yarn cache directory path
+            - name: Install dependencies (Linux)
+              if: runner.os == 'Linux'
+              run: sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libglib2.0-dev libssl-dev libappindicator3-dev librsvg2-dev libappindicator-dev libgdk3.0-cil libatk1.0-dev
+
+            - name: Get Yarn cache directory path (Windows)
               if: runner.os == 'Windows'
               run: echo "yarn_cache_dir=$(yarn cache dir)" >> $env:GITHUB_ENV
 
-            - name: Get Yarn cache directory path
+            - name: Get Yarn cache directory path (non-Windows)
               if: runner.os != 'Windows'
               run: echo "yarn_cache_dir=$(yarn cache dir)" >> $GITHUB_ENV
 
@@ -61,21 +65,21 @@ jobs:
             - name: Build production
               run: yarn run tauri:build:is
 
-            - name: Upload dist
+            - name: Upload dist (Windows)
               if: runner.os == 'Windows'
               uses: actions/upload-artifact@v3
               with:
                   name: win32
                   path: "out/*"
 
-            - name: Upload dist
+            - name: Upload dist (Linux)
               if: runner.os == 'Linux'
               uses: actions/upload-artifact@v3
               with:
                   name: linux
                   path: "out/*"
 
-            - name: Upload dist
+            - name: Upload dist (macOS)
               if: runner.os == 'macOS'
               uses: actions/upload-artifact@v3
               with:
