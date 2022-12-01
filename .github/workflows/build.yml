@@ -11,7 +11,10 @@ env:
 
 jobs:
     build:
-        runs-on: windows-latest
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest, macos-latest]
+        runs-on: ${{ matrix.os }}
         steps:
             - uses: actions/checkout@v3
 
@@ -24,14 +27,18 @@ jobs:
               run: npm install yarn -g
 
             - name: Get Yarn cache directory path
-              id: yarn-cache-dir-path
-              run: echo "dir=$(yarn cache dir)" >> $env:GITHUB_OUTPUT
+              if: runner.os == 'Windows'
+              run: echo "yarn_cache_dir=$(yarn cache dir)" >> $env:GITHUB_ENV
+
+            - name: Get Yarn cache directory path
+              if: runner.os != 'Windows'
+              run: echo "yarn_cache_dir=$(yarn cache dir)" >> $GITHUB_ENV
 
             - name: Cache Yarn dependencies
               id: yarn-cache
               uses: actions/cache@v3
               with:
-                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                  path: ${{ env.yarn_cache_dir }}
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
                   restore-keys: |
                       ${{ runner.os }}-yarn-
@@ -55,7 +62,22 @@ jobs:
               run: yarn run tauri:build:is
 
             - name: Upload dist
+              if: runner.os == 'Windows'
               uses: actions/upload-artifact@v3
               with:
-                  name: win32-installer
+                  name: win32
+                  path: "out/*"
+
+            - name: Upload dist
+              if: runner.os == 'Linux'
+              uses: actions/upload-artifact@v3
+              with:
+                  name: linux
+                  path: "out/*"
+
+            - name: Upload dist
+              if: runner.os == 'macOS'
+              uses: actions/upload-artifact@v3
+              with:
+                  name: macos
                   path: "out/*"
