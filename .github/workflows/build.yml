@@ -23,12 +23,9 @@ jobs:
             - name: Use Yarn
               run: npm install yarn -g
 
-            - name: Delete lock file # improve download speed
-              run: rm -r -fo yarn.lock
-
             - name: Get Yarn cache directory path
               id: yarn-cache-dir-path
-              run: echo "::set-output name=dir::$(yarn cache dir)"
+              run: echo "dir=$(yarn cache dir)" >> $env:GITHUB_OUTPUT
 
             - name: Cache Yarn dependencies
               id: yarn-cache
