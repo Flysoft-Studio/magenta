@@ -28,4 +28,4 @@ jobs:
             - name: Build production
               uses: borales/actions-yarn@v4
               with:
-                  cmd: run tauri:build
+                  cmd: tauri:build
