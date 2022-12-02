@@ -21,6 +21,9 @@
             "deb": {
                 "depends": []
             },
+            "appimage": {
+                "bundleMediaFramework": true
+            },
             "externalBin": [],
             "icon": [
                 "icons/32x32.png",
