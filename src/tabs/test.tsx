@@ -7,8 +7,9 @@ export function Test({ testItemCount }) {
             {new Array(testItemCount).fill(null).map((value, i) => {
                 return (
                     <>
-                        <Cover key={i * 2}></Cover>
+                        <Cover type="artist" key={i * 2}></Cover>
                         <Cover
+                            type="media"
                             key={i * 2 + 1}
                             url="http://p3.music.126.net/njCU7D_y3hRqQQSQmIW1lg==/109951163695044017.jpg"
                         ></Cover>

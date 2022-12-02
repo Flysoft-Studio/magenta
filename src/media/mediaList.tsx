@@ -17,6 +17,7 @@ export function MediaList(props: MediaListProps) {
                         <div className="media_list_item_counter">{index + 1}</div>
                         <Cover
                             className="media_list_item_cover"
+                            type="media"
                             url={item.album.art}
                         ></Cover>
                         <div className="media_list_item_info">

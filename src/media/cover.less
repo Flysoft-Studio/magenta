@@ -5,11 +5,15 @@
     position: relative;
     width: var(--cover-size);
     height: var(--cover-size);
-    border-radius: 5px;
+    border-radius: 6px;
     overflow: hidden;
     border: var(--border1) 1px solid;
     background-color: var(--cover-bg);
     box-sizing: content-box;
+
+    &.cover_artist {
+        border-radius: 50%;
+    }
 
     .cover_image {
         position: absolute;
