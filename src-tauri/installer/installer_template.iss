@@ -29,7 +29,7 @@ LanguageDetectionMethod=uilanguage
 ShowLanguageDialog=no 
 
 [Languages]
-Name: "english"; MessagesFile: "compiler:Default.isl"
+Name: "english"; MessagesFile: "compiler:Languages\Default.isl"
 Name: "chinesesimplified"; MessagesFile: "compiler:Languages\ChineseSimplified.isl"
 
 [CustomMessages]
