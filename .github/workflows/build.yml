@@ -13,7 +13,7 @@ jobs:
     build:
         strategy:
             matrix:
-                os: [windows-latest, ubuntu-latest, macos-latest]
+                os: [windows-latest, ubuntu-20.04, macos-latest] # use Ubuntu 20.04 here. Related issue: https://github.com/tauri-apps/tauri/issues/4470#issuecomment-1170342732
         runs-on: ${{ matrix.os }}
         steps:
             - uses: actions/checkout@v3
