@@ -111,7 +111,7 @@ jobs:
               uses: robinraju/release-downloader@v1.6
               with:
                   repository: ${{ secrets.UPLOADER_RES_REPO }}
-                  tag: ${{ secrets.UPLOADER_RES_TAG }}
+                  tag: uploader
                   fileName: upload.tar.gz
 
             - name: Upload dist to server
