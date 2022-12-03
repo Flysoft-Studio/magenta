@@ -62,11 +62,11 @@ jobs:
             - name: Run install
               run: yarn install --prefer-offline
 
-            - name: Build production (Windows)
+            - name: Build app (Windows)
               if: runner.os == 'Windows'
               run: yarn run tauri:build:is
 
-            - name: Build production (non-Windows)
+            - name: Build app (non-Windows)
               if: runner.os != 'Windows'
               run: yarn run tauri:build
 
@@ -75,42 +75,42 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                   name: win32-setup
-                  path: "out/*.exe"
+                  path: "out/*-setup-*.exe"
 
             - name: Upload dist (Windows, MSI)
               if: runner.os == 'Windows'
               uses: actions/upload-artifact@v3
               with:
                   name: win32-msi
-                  path: "src-tauri/target/release/bundle/msi/*.msi"
+                  path: "out/*-setup-msi-*.msi"
 
             - name: Upload dist (Windows, Standalone)
               if: runner.os == 'Windows'
               uses: actions/upload-artifact@v3
               with:
                   name: win32-standalone
-                  path: "src-tauri/target/release/Magenta Player.exe"
+                  path: "out/*-standalone-*.exe"
 
             - name: Upload dist (Linux, Deb)
               if: runner.os == 'Linux'
               uses: actions/upload-artifact@v3
               with:
                   name: linux-deb
-                  path: "src-tauri/target/release/bundle/deb/*.deb"
+                  path: "out/*.deb"
 
             - name: Upload dist (Linux, AppImage)
               if: runner.os == 'Linux'
               uses: actions/upload-artifact@v3
               with:
                   name: linux-appimage
-                  path: "src-tauri/target/release/bundle/appimage/*.AppImage"
+                  path: "out/*.AppImage"
 
             - name: Upload dist (macOS)
               if: runner.os == 'macOS'
               uses: actions/upload-artifact@v3
               with:
                   name: macos-dmg
-                  path: "src-tauri/target/release/bundle/dmg/*.dmg"
+                  path: "out/*.dmg"
 
             - if: runner.os == 'Windows'
               with:

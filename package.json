@@ -63,10 +63,7 @@
         "dev": "node scripts/start.js",
         "build": "node scripts/build.js",
         "tauri:dev": "tauri dev",
-        "tauri:build": "tauri build",
-        "tauri:build:is": "tauri build && node scripts/innosetup.js",
-        "package": "electron-forge package",
-        "make": "electron-forge make"
+        "tauri:build": "node scripts/buildTauri.js"
     },
     "browserslist": {
         "production": [

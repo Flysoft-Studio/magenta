@@ -4,7 +4,7 @@
 #define AppVersion "{version}"
 #define AppPublisher "Flysoft"
 #define AppExeName "Magenta Player.exe"
-#define AppOutName "Magenta"
+#define AppOutName "magenta-player"
 #define AppBaseDir "..\.."
 #define AppCopyrightYear "{year}"
 #define AppBuildNumber "{build_number}"
@@ -29,7 +29,7 @@ LanguageDetectionMethod=uilanguage
 ShowLanguageDialog=no 
 
 [Languages]
-Name: "english"; MessagesFile: "compiler:Languages\Default.isl"
+Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "chinesesimplified"; MessagesFile: "compiler:Languages\ChineseSimplified.isl"
 
 [CustomMessages]
