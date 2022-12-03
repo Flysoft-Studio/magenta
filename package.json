@@ -58,6 +58,9 @@
         "webpack-manifest-plugin": "^4.0.2",
         "workbox-webpack-plugin": "^6.4.1"
     },
+    "devDependencies": {
+        "typescript": "^4.9.3"
+    },
     "scripts": {
         "dev": "node scripts/start.js",
         "build": "node scripts/build.js",
@@ -76,8 +79,5 @@
         "presets": [
             "react-app"
         ]
-    },
-    "devDependencies": {
-        "typescript": "^4.9.3"
     }
 }
