@@ -62,12 +62,7 @@ jobs:
             - name: Run install
               run: yarn install --prefer-offline
 
-            - name: Build app (Windows)
-              if: runner.os == 'Windows'
-              run: yarn run tauri:build:is
-
-            - name: Build app (non-Windows)
-              if: runner.os != 'Windows'
+            - name: Build app
               run: yarn run tauri:build
 
             - name: Upload dist (Windows, Setup)
