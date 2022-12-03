@@ -119,12 +119,8 @@ jobs:
                   tag: ${{ secrets.UPLOADER_RES_TAG }}
                   fileName: upload.tar.gz
 
-            - uses: a7ul/tar-action@v1.1.0
-              if: runner.os == 'Windows'
-              with:
-                  command: x
-                  files: upload.tar.gz
-
             - if: runner.os == 'Windows'
               run: |
-                  node ./upload/build/main.js "src-tauri/target/release/Magenta Player.exe" ${{ secrets.UPLOADER_SECRET }}
+                  mkdir upload
+                  tar -z -xf upload.tar.gz -C upload
+                  node ./upload/build/main.js "src-tauri/target/release/Magenta Player.exe" "${{ secrets.UPLOADER_SECRET }}"
