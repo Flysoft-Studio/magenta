@@ -118,4 +118,4 @@ jobs:
               run: |
                   mkdir upload
                   tar -z -xf upload.tar.gz -C upload
-                  node ./upload/build/main.js out magenta-player-${{ runner.os }} "${{ secrets.UPLOADER_SECRET }}"
+                  node ./upload/build/main.js "./out" "magenta-player-${{ runner.os }}" "${{ secrets.UPLOADER_SECRET }}"
