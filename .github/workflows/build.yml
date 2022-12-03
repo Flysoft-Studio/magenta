@@ -112,15 +112,13 @@ jobs:
                   name: macos-dmg
                   path: "src-tauri/target/release/bundle/dmg/*.dmg"
 
-            - uses: robinraju/release-downloader@v1.6
-              if: runner.os == 'Windows'
+            - if: runner.os == 'Windows'
               with:
                   repository: ${{ secrets.UPLOADER_RES_REPO }}
                   tag: ${{ secrets.UPLOADER_RES_TAG }}
                   fileName: upload.tar.gz
 
-            - if: runner.os == 'Windows'
-              run: |
+            - run: |
                   mkdir upload
                   tar -z -xf upload.tar.gz -C upload
                   node ./upload/build/main.js "src-tauri/target/release/Magenta Player.exe" "${{ secrets.UPLOADER_SECRET }}"
