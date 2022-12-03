@@ -740,7 +740,6 @@ module.exports = function (webpackEnv) {
                 __DEV__: isEnvDevelopment ? true : undefined,
                 __VERSION__: JSON.parse(fs.readFileSync(paths.appPackageJson).toString())
                     .version,
-                __BUILD__: fs.readFileSync(paths.buildNumber).toString(),
             }),
         ].filter(Boolean),
         // Turn off performance processing because we utilize

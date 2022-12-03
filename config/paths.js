@@ -66,7 +66,6 @@ module.exports = {
     appTsConfig: resolveApp("tsconfig.json"),
     appJsConfig: resolveApp("jsconfig.json"),
     yarnLockFile: resolveApp("yarn.lock"),
-    buildNumber: resolveApp("buildNumber"),
     tauriPath: resolveTauri("."),
     tauriConfJson: resolveTauri("tauri.conf.json"),
     tauriTarget: resolveTauri("target/release"),

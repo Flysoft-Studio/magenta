@@ -7,7 +7,7 @@
 #define AppOutName "magenta-player"
 #define AppBaseDir "..\.."
 #define AppCopyrightYear "{year}"
-#define AppBuildNumber "{build_number}"
+#define AppCommit "{commit}"
 
 [Setup]
 AppId={{F9C18145-18E5-42FE-9E2E-F2C0A91B957E}
@@ -20,7 +20,7 @@ DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputDir={#AppBaseDir}\out
-OutputBaseFilename={#AppOutName}-setup-v{#AppVersion}-b{#AppBuildNumber}
+OutputBaseFilename={#AppOutName}-setup-v{#AppVersion}-{#AppCommit}
 SetupIconFile={#AppBaseDir}\src-tauri\icons\icon.ico
 Compression=lzma
 SolidCompression=yes

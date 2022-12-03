@@ -10,7 +10,13 @@ const { copyFileSync } = require("fs");
 
 let packageJson = JSON.parse(fs.readFileSync(paths.appPackageJson).toString());
 let tauriConfJson = JSON.parse(fs.readFileSync(paths.tauriConfJson).toString());
-let buildNumber = fs.readFileSync(paths.buildNumber).toString();
+let commit;
+try {
+    let git = cp.spawnSync("git", ["rev-parse", "--short", "HEAD"]);
+    commit = git.stdout.toString().replace("\n", "");
+    if (commit.length < 1) commit = null;
+} catch {}
+if (!commit) commit = "unknown";
 
 async function main() {
     await cli.run(["build"], null);
@@ -38,8 +44,8 @@ async function main() {
                     packageJson.name +
                     "-setup-msi-v" +
                     packageJson.version +
-                    "-b" +
-                    buildNumber +
+                    "-" +
+                    commit +
                     "-" +
                     process.arch;
             else if (fileExt == ".dmg")
@@ -47,8 +53,8 @@ async function main() {
                     packageJson.name +
                     "-setup-v" +
                     packageJson.version +
-                    "-b" +
-                    buildNumber +
+                    "-" +
+                    commit +
                     "-" +
                     process.arch;
             else continue;
@@ -65,7 +71,7 @@ async function main() {
 
         innoScript = innoScript
             .replace("{version}", packageJson.version)
-            .replace("{build_number}", buildNumber)
+            .replace("{commit}", commit)
             .replace("{year}", date.getUTCFullYear());
         fs.writeFileSync(paths.innoFile, innoScript);
 
@@ -80,8 +86,8 @@ async function main() {
                 packageJson.name +
                     "-standalone-v" +
                     packageJson.version +
-                    "-b" +
-                    buildNumber +
+                    "-" +
+                    commit +
                     "-" +
                     process.arch +
                     ".exe"
