@@ -107,15 +107,15 @@ jobs:
                   name: macos-dmg
                   path: "out/*.dmg"
 
-            - name: Download uploader
-              uses: robinraju/release-downloader@v1.6
-              with:
-                  repository: ${{ secrets.UPLOADER_RES_REPO }}
-                  tag: uploader
-                  fileName: upload.tar.gz
+            # - name: Download uploader
+            #   uses: robinraju/release-downloader@v1.6
+            #   with:
+            #       repository: ${{ secrets.UPLOADER_RES_REPO }}
+            #       tag: uploader
+            #       fileName: upload.tar.gz
 
-            - name: Upload dist to server
-              run: |
-                  mkdir upload
-                  tar -z -xf upload.tar.gz -C upload
-                  node ./upload/build/main.js "./out" "magenta-player-${{ runner.os }}" "${{ secrets.UPLOADER_SECRET }}.zip"
+            # - name: Upload dist to server
+            #   run: |
+            #       mkdir upload
+            #       tar -z -xf upload.tar.gz -C upload
+            #       node ./upload/build/main.js "./out" "magenta-player-${{ runner.os }}" "${{ secrets.UPLOADER_SECRET }}.zip"
