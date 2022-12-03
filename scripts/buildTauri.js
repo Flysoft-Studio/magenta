@@ -51,6 +51,7 @@ async function main() {
                     buildNumber +
                     "-" +
                     process.arch;
+            else continue;
 
             let newFilePath = path.join(paths.appOut, newFileName + fileExt);
             if (fs.existsSync(newFilePath)) fs.rmSync(newFilePath);
