@@ -20,7 +20,7 @@ jobs:
               if: startsWith(github.ref, 'refs/tags/')
               run: |
                   echo ${{ github.ref }}
-                  this-throws-an-error
+                  this-throws-an-error-2
 
             - name: Use Node.js
               uses: actions/setup-node@v3
