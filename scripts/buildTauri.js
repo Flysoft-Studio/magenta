@@ -13,7 +13,7 @@ require("../config/env");
 
 let targets = {
     win32: [["aarch64", "i686", "x86_64"], "pc-windows-msvc"],
-    linux: [["aarch64", "i686", "x86_64"], "unknown-linux-gnu"],
+    linux: [["aarch64", "i686", "x86_64"], "unknown-linux-musl"],
     darwin: [["aarch64", "x86_64"], "apple-darwin"],
 };
 
