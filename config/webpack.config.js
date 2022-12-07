@@ -1,6 +1,6 @@
 "use strict";
 
-const fs = require("fs");
+const fs = require("fs-extra");
 const path = require("path");
 const webpack = require("webpack");
 const resolve = require("resolve");
@@ -738,8 +738,7 @@ module.exports = function (webpackEnv) {
                 }),
             new DefinePlugin({
                 __DEV__: isEnvDevelopment ? true : undefined,
-                __VERSION__: JSON.parse(fs.readFileSync(paths.appPackageJson).toString())
-                    .version,
+                __VERSION__: fs.readJSONSync(paths.appPackageJson).version,
             }),
         ].filter(Boolean),
         // Turn off performance processing because we utilize

@@ -8,6 +8,8 @@
 #define AppBaseDir "..\.."
 #define AppCopyrightYear "{year}"
 #define AppCommit "{commit}"
+#define AppArch "{arch}"
+#define AppAllowedArch "{allowed_arch}"
 
 [Setup]
 AppId={{F9C18145-18E5-42FE-9E2E-F2C0A91B957E}
@@ -20,10 +22,11 @@ DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputDir={#AppBaseDir}\out
-OutputBaseFilename={#AppOutName}-setup-v{#AppVersion}-{#AppCommit}
+OutputBaseFilename={#AppOutName}-setup-v{#AppVersion}-{#AppCommit}-{#AppArch}
 SetupIconFile={#AppBaseDir}\src-tauri\icons\icon.ico
 Compression=lzma
 SolidCompression=yes
+ArchitecturesAllowed={#AppAllowedArch}
 WizardStyle=modern
 LanguageDetectionMethod=uilanguage
 ShowLanguageDialog=no 
