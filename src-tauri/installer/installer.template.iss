@@ -3,9 +3,9 @@
 #define AppName "Magenta Player"
 #define AppVersion "{version}"
 #define AppPublisher "Flysoft"
-#define AppExeName "Magenta Player.exe"
 #define AppOutName "magenta-player"
 #define AppBaseDir "..\.."
+#define AppExePath "{executable}"
 #define AppCopyrightYear "{year}"
 #define AppCommit "{commit}"
 #define AppArch "{arch}"
@@ -43,7 +43,7 @@ english.EarlyTestVersionWarning=%n%nThis is an early test version of {#AppName} 
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "{#AppBaseDir}\src-tauri\target\release\{#AppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#AppExePath}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#AppBaseDir}\src-tauri\installer\MicrosoftEdgeWebview2Setup.exe"; DestDir: "{tmp}"; Flags: ignoreversion
 
 [Icons]

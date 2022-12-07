@@ -98,6 +98,10 @@ async function main() {
 
         if (platform == "win32") {
             let date = new Date();
+            let standaloneExecutable = path.join(
+                targetPath,
+                tauriConfJson.package.productName + ".exe"
+            );
             let innoScript = fs.readFileSync(paths.innoTemplate).toString();
 
             let allowedIArch = "";
@@ -110,7 +114,8 @@ async function main() {
                 .replace("{commit}", commit)
                 .replace("{year}", date.getUTCFullYear())
                 .replace("{arch}", arch)
-                .replace("{allowed_arch}", allowedIArch);
+                .replace("{allowed_arch}", allowedIArch)
+                .replace("{executable}", standaloneExecutable);
             fs.writeFileSync(paths.innoFile, innoScript);
 
             let compiler = cp.spawn(paths.innoCompiler, [paths.innoFile]);
@@ -121,7 +126,7 @@ async function main() {
             });
 
             copyFileSync(
-                path.join(targetPath, tauriConfJson.package.productName + ".exe"),
+                standaloneExecutable,
                 path.join(
                     paths.appOut,
                     packageJson.name +
