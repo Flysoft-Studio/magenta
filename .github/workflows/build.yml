@@ -82,6 +82,13 @@ jobs:
               run: yarn install --prefer-offline
 
             - name: Build app
+              if: runner.os == 'Linux'
+              run: |
+                  export CC_aarch64_unknown_linux_musl=aarch64-linux-gnu-gcc
+                  yarn run tauri:build
+
+            - name: Build app
+              if: runner.os != 'Linux'
               run: yarn run tauri:build
 
             - name: Upload dist (Windows, Setup)
