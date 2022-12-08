@@ -27,6 +27,3 @@ default = [ "custom-protocol" ]
 # this feature is used for production builds where `devPath` points to the filesystem
 # DO NOT remove this
 custom-protocol = [ "tauri/custom-protocol" ]
-
-[target.aarch64-unknown-linux-musl]
-linker = "aarch64-linux-gnu-gcc"
