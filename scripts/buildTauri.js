@@ -125,7 +125,7 @@ async function main() {
             });
 
             copyFileSync(
-                standaloneExecutable,
+                executablePath,
                 path.join(
                     paths.appOut,
                     packageJson.name +
