@@ -5,7 +5,8 @@
 #define AppPublisher "Flysoft"
 #define AppOutName "magenta-player"
 #define AppBaseDir "..\.."
-#define AppExePath "{executable}"
+#define AppExeName "{executable_name}"
+#define AppExePath "{executable_path}"
 #define AppCopyrightYear "{year}"
 #define AppCommit "{commit}"
 #define AppArch "{arch}"
@@ -51,7 +52,7 @@ Name: "{autoprograms}\{#AppName}"; Filename: "{app}\{#AppExeName}"
 Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppExeName}"; Tasks: desktopicon
 
 [Run]
-Filename: "{tmp}\MicrosoftEdgeWebview2Setup.exe"; Parameters: "/silent /install"; WorkingDir: {tmp}; Flags: skipifdoesntexist; StatusMsg: "Microsoft Edge Webview2"; Check: IsWebview2InstallationRequired  
+Filename: "{tmp}\MicrosoftEdgeWebview2Setup.exe"; Parameters: "/silent /install"; WorkingDir: {tmp}; Flags: skipifdoesntexist; StatusMsg: "Install Microsoft Edge Webview2"; Check: IsWebview2InstallationRequired  
 Filename: "{app}\{#AppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(AppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
 [Code]
