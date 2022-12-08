@@ -84,7 +84,7 @@ jobs:
             - name: Build app
               if: runner.os == 'Linux'
               run: |
-                  PKG_CONFIG_SYSROOT_DIR=/
+                  export PKG_CONFIG_SYSROOT_DIR=/
                   yarn run tauri:build
 
             - name: Build app
