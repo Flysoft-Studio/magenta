@@ -29,8 +29,8 @@ if (!commit) commit = "unknown";
 async function main() {
     const platform = process.platform;
     let target = targets[platform];
-    let targetArch = process.env["TARGET_ARCH"]
-        ? process.env["TARGET_ARCH"].split(",")
+    let targetArch = process.env[platform.toLocaleUpperCase() + "_TARGET_ARCH"]
+        ? process.env[platform.toLocaleUpperCase() + "_TARGET_ARCH"].split(",")
         : null;
     for (const arch of target[0]) {
         if (targetArch && !targetArch.includes(arch)) continue;
