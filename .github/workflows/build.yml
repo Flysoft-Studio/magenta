@@ -84,7 +84,7 @@ jobs:
             - name: Build app
               if: runner.os == 'Linux'
               run: |
-                  export CC_aarch64_unknown_linux_musl=aarch64-linux-gnu-gcc
+                  PKG_CONFIG_SYSROOT_DIR=/
                   yarn run tauri:build
 
             - name: Build app
