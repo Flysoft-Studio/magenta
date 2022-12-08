@@ -26,10 +26,8 @@ jobs:
             - name: Install dependencies (Linux)
               if: runner.os == 'Linux'
               run: |
-                  sudo dpkg --add-architecture i386
                   sudo apt-get update
-                  sudo apt-get upgrade -y
-                  sudo apt-get install -y gcc-i686-linux-gnu libc6-dev:amd64 libc6-dev:i386 libgtk-3-dev:amd64 libgtk-3-dev:i386 libwebkit2gtk-4.0-dev:amd64 libwebkit2gtk-4.0-dev:i386 libglib2.0-dev:amd64 libglib2.0-dev:i386 libssl-dev:amd64 libssl-dev:i386 librsvg2-dev:amd64 librsvg2-dev:i386 libatk1.0-dev:amd64 libatk1.0-dev:i386 libappindicator3-dev libappindicator-dev libgdk3.0-cil libgdk3.0-cil
+                  sudo apt-get install -y libc6-dev libgtk-3-dev libwebkit2gtk-4.0-dev libglib2.0-dev libssl-dev librsvg2-dev libatk1.0-dev libappindicator3-dev libappindicator-dev libgdk3.0-cil libgdk3.0-cil
 
             - name: Add Rust build targets (Windows)
               if: runner.os == 'Windows'
@@ -41,7 +39,6 @@ jobs:
             - name: Add Rust build targets (Linux)
               if: runner.os == 'Linux'
               run: |
-                  rustup target add i686-unknown-linux-gnu
                   rustup target add x86_64-unknown-linux-gnu
 
             - name: Add Rust build targets (macOS)
@@ -83,13 +80,6 @@ jobs:
               run: yarn install --prefer-offline
 
             - name: Build app
-              if: runner.os == 'Linux'
-              run: |
-                  export PKG_CONFIG_SYSROOT_DIR=/
-                  yarn run tauri:build
-
-            - name: Build app
-              if: runner.os != 'Linux'
               run: yarn run tauri:build
 
             - name: Upload dist (Windows, Setup)
