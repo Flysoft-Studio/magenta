@@ -56,6 +56,18 @@
         "webpack": "^5.64.4",
         "webpack-dev-server": "^4.11.1",
         "webpack-manifest-plugin": "^4.0.2",
+        "workbox-background-sync": "^6.5.4",
+        "workbox-broadcast-update": "^6.5.4",
+        "workbox-cacheable-response": "^6.5.4",
+        "workbox-core": "^6.5.4",
+        "workbox-expiration": "^6.5.4",
+        "workbox-google-analytics": "^6.5.4",
+        "workbox-navigation-preload": "^6.5.4",
+        "workbox-precaching": "^6.5.4",
+        "workbox-range-requests": "^6.5.4",
+        "workbox-routing": "^6.5.4",
+        "workbox-strategies": "^6.5.4",
+        "workbox-streams": "^6.5.4",
         "workbox-webpack-plugin": "^6.4.1"
     },
     "devDependencies": {
