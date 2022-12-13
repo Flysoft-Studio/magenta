@@ -55,6 +55,11 @@ export function App() {
                 setVerboseRendering(false);
                 setTransistionStage("in");
 
+                if (fadeInTimeout) {
+                    clearTimeout(fadeInTimeout);
+                    fadeInTimeout = null;
+                }
+
                 fadeInTimeout = setTimeout(() => {
                     fadeInTimeout = null;
                     setVerboseRendering(true);
