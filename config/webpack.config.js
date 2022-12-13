@@ -5,7 +5,6 @@ const path = require("path");
 const webpack = require("webpack");
 const resolve = require("resolve");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
 const InlineChunkHtmlPlugin = require("react-dev-utils/InlineChunkHtmlPlugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -601,7 +600,6 @@ module.exports = function (webpackEnv) {
                         : undefined
                 )
             ),
-            new CleanWebpackPlugin(),
             // Inlines the webpack runtime script. This script is too small to warrant
             // a network request.
             // https://github.com/facebook/create-react-app/issues/5358
@@ -736,10 +734,6 @@ module.exports = function (webpackEnv) {
                         infrastructure: "silent",
                     },
                 }),
-            new DefinePlugin({
-                __DEV__: isEnvDevelopment ? true : undefined,
-                __VERSION__: fs.readJSONSync(paths.appPackageJson).version,
-            }),
         ].filter(Boolean),
         // Turn off performance processing because we utilize
         // our own hints via the FileSizeReporter
