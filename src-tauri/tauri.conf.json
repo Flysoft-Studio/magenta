@@ -1,1 +1,60 @@
-{"$schema":"../node_modules/@tauri-apps/cli/schema.json","build":{"beforeBuildCommand":"yarn run build","beforeDevCommand":"yarn run dev","devPath":"http://localhost:5500","distDir":"../build"},"package":{"productName":"Magenta Player","version":"../package.json"},"tauri":{"allowlist":{"all":true},"bundle":{"active":true,"category":"Entertainment","copyright":"Copyright © Flysoft 2023","publisher":"Flysoft","deb":{"depends":[]},"appimage":{"bundleMediaFramework":true},"externalBin":[],"icon":["icons/32x32.png","icons/128x128.png","icons/128x128@2x.png","icons/icon.icns","icons/icon.ico"],"identifier":"com.flysoft.magenta","longDescription":"","macOS":{"entitlements":null,"exceptionDomain":"","frameworks":[],"providerShortName":null,"signingIdentity":null},"resources":[],"shortDescription":"","targets":"all","windows":{"webviewInstallMode":{"type":"skip"},"certificateThumbprint":null,"digestAlgorithm":"sha256","timestampUrl":""}},"security":{"csp":null},"updater":{"active":false},"windows":[{"label":"main","fullscreen":false,"height":600,"resizable":true,"title":"Magenta","width":800,"decorations":false}]}}
+{
+    "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+    "build": {
+        "beforeBuildCommand": "",
+        "beforeDevCommand": "yarn run dev",
+        "devPath": "http://localhost:5500",
+        "distDir": "../build"
+    },
+    "package": { "productName": "Magenta Player", "version": "../package.json" },
+    "tauri": {
+        "allowlist": { "all": true },
+        "bundle": {
+            "active": true,
+            "category": "Entertainment",
+            "copyright": "Copyright © Flysoft 2023",
+            "publisher": "Flysoft",
+            "deb": { "depends": [] },
+            "appimage": { "bundleMediaFramework": true },
+            "externalBin": [],
+            "icon": [
+                "icons/32x32.png",
+                "icons/128x128.png",
+                "icons/128x128@2x.png",
+                "icons/icon.icns",
+                "icons/icon.ico"
+            ],
+            "identifier": "com.flysoft.magenta",
+            "longDescription": "",
+            "macOS": {
+                "entitlements": null,
+                "exceptionDomain": "",
+                "frameworks": [],
+                "providerShortName": null,
+                "signingIdentity": null
+            },
+            "resources": [],
+            "shortDescription": "",
+            "targets": "all",
+            "windows": {
+                "webviewInstallMode": { "type": "skip" },
+                "certificateThumbprint": null,
+                "digestAlgorithm": "sha256",
+                "timestampUrl": ""
+            }
+        },
+        "security": { "csp": null },
+        "updater": { "active": false },
+        "windows": [
+            {
+                "label": "main",
+                "fullscreen": false,
+                "height": 600,
+                "resizable": true,
+                "title": "Magenta",
+                "width": 800,
+                "decorations": false
+            }
+        ]
+    }
+}
