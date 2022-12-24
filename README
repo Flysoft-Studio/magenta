@@ -1,0 +1,9 @@
+# Magenta · [![License](https://shields.io/github/license/Flysoft-Studio/Magenta)](https://github.com/Flysoft-Studio/Magenta/blob/main/LICENSE) [![Releases](https://shields.io/github/downloads/Flysoft-Studio/Magenta/total)](https://github.com/Flysoft-Studio/Magenta/releases) [![Build](https://shields.io/github/actions/workflow/status/Flysoft-Studio/Magenta/build.yml?branch=main)](https://github.com/Flysoft-Studio/Magenta/actions/workflows/build.yml)
+
+Magenta is a media player designed to run anywhere, play anything.
+
+**🛠️ Warning: This project is still work in progress, and no stable version has been released yet.**
+
+## Contributors
+
+[![Contributors](https://contrib.rocks/image?repo=Flysoft-Studio/Magenta)](https://github.com/Flysoft-Studio/Magenta/graphs/contributors)
